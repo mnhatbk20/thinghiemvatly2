@@ -83,45 +83,6 @@ function Init() {
 
 
 
-	firebase.database().ref('/motor1/pos').once('value').then((snapshot) => {
-		let posCurrent = snapshot.val();
-		let tiltCurrent = MaxMotor - posCurrent
-
-		$("#range-tilt").asRange('set', tiltCurrent / MaxMotor * 100);
-
-
-	})
-
-	$("#range-tilt-ok").click(function () {
-
-		firebase.database().ref('/motor1/pos').once('value').then((snapshot) => {
-			var posCurrent = snapshot.val();
-			var tiltCurrent = $("#range-tilt").asRange('val') * MaxMotor / 100;
-			var posTarget = MaxMotor - tiltCurrent;
-			var diff = posTarget - posCurrent
-
-
-			if (diff < 0) {
-				db.ref().update({ 'motor1/run': 1 })
-				db.ref().update({ 'motor1/steps': Math.abs(diff) })
-				db.ref().update({ 'motor1/dir': 0 })
-
-			}
-			if (diff > 0) {
-				db.ref().update({ 'motor1/run': 1 })
-				db.ref().update({ 'motor1/steps': Math.abs(diff) })
-				db.ref().update({ 'motor1/dir': 1 })
-			}
-		})
-	})
-
-
-
-
-	$("#restore").click(function () {
-		Restore()
-	});
-
 
 
 	$("#start").click(function () {
@@ -142,7 +103,6 @@ function Init() {
 
 		db.ref().update({ 'states/startMeas': 0 })
 		db.ref().update({ 'states/stopMeas': 1 })
-		Restore()
 
 		// getDoneMOCK();
 
