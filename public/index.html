@@ -110,33 +110,28 @@
             </div>
 
             <div class="monitor-right">
-                <div id="select-motor">
-                    <div id="range-tilt-input"> <input id="range-tilt" type="text"></div>
-                    <input id="range-tilt-ok" type="button" value="Điều chỉnh độ nghiêng">
-                    <input id="restore" type="button" value="Đặt lại vị trí xe">
+                <form class="select-time" action="">
+                    <div class="select-time-item">
+                        <label for="">Tối đa:</label> <span id="max-time">0</span> ms
+                    </div>
+                    <div class="select-time-item">
+                        <label for="startTime">Bắt đầu</label>
+                        <input type="number" name="startTime" id="startTime" value="0" max="0" min="0">
+                    </div>
+                    <div class="select-time-item">
+                        <label for="endTime">Kết thúc</label>
+                        <input type="number" name="endTime" id="endTime" value="1000" max="0" min="0">
+                    </div>
+                    <div class="select-time-item">
+                        <input id="submit" type="button" value="↻">
+                    </div>
 
-                </div>
+
+                </form>
+
 
             </div>
 
-            <form class="select-time" action="">
-                <div class="select-time-item">
-                    <label for="">Tối đa:</label> <span id="max-time">0</span> ms
-                </div>
-                <div class="select-time-item">
-                    <label for="startTime">Bắt đầu</label>
-                    <input type="number" name="startTime" id="startTime" value="0" max="0" min="0">
-                </div>
-                <div class="select-time-item">
-                    <label for="endTime">Kết thúc</label>
-                    <input type="number" name="endTime" id="endTime" value="1000" max="0" min="0">
-                </div>
-                <div class="select-time-item">
-                    <input id="submit" type="button" value="↻">
-                </div>
-
-
-            </form>
 
 
 
